@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = moviewAdapter
 
         var retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com")
+                .baseUrl()
                 .addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
 
