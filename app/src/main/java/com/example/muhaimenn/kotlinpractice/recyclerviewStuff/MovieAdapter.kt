@@ -13,6 +13,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewholder>() {
 
     private val movies: MutableList<Response> = mutableListOf()
 
+
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MovieViewholder {
         return MovieViewholder(View.inflate(p0.context, R.layout.movie_itemview, p0))
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
