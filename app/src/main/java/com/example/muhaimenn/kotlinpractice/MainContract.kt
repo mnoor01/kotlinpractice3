@@ -8,7 +8,11 @@ interface MainContract {
     }
 
     interface Presenter {
-        fun start(onFinishedListener: OnFinishedListener)
+        fun start()
+    }
+
+    interface GetBookInteractor {
+        fun getData(onFinishedListener: OnFinishedListener)
     }
 
     interface OnFinishedListener {
