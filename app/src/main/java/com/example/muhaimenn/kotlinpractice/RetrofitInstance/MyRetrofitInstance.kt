@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MyRetrofitInstance {
 
-    fun retrofitInstance() {
+    fun retrofitInstance(): GetMovie? {
         val retrofitInstance= Retrofit.Builder().
                 addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

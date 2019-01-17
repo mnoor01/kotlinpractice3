@@ -18,17 +18,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        moviewAdapter = MovieAdapter()
-        recyclerView.adapter = moviewAdapter
-
-        var retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl()
-                .addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
-
-        val movie = retrofit.create(GetMovie::class.java)
-        movie.getMovie().subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe()
 
     }
 }
