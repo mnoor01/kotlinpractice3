@@ -35,13 +35,14 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewholder>() {
 
         val movieTitleText: TextView = itemView.findViewById(R.id.movieTitle)
         val movieGenreText: TextView = itemView.findViewById(R.id.movieGenre)
-        val movieYear: TextView = itemView.findViewById(R.id.movieGenre)
+        val movieAuthor: TextView = itemView.findViewById(R.id.movieauthor)
 
         val movieAvatartImage: ImageView = itemView.findViewById(R.id.movieAvatar)
 
         fun bindModel(movie: Response) {
             movieTitleText.text = movie.name
             movieGenreText.text = movie.genreS
+            movieAuthor.text = movie.author
 
 
         }
