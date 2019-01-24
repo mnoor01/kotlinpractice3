@@ -11,15 +11,17 @@ class PresenterImpl(mainContract : MainContract.MainView,interactorImpl: MainCon
         interactorImpl.getData(this)
 
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
     override fun onFinished(movieList: MutableList<Response>) {
+        var mainView : MainContract.MainView
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+      //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onFailure(throwable: Throwable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    //    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
