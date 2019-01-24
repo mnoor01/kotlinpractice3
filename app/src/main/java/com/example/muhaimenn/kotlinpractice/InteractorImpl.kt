@@ -8,6 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import java.util.*
+import java.util.logging.Logger
 
 class InteractorImpl : MainContract.GetBookInteractor {
 

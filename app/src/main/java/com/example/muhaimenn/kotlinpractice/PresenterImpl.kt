@@ -2,7 +2,7 @@ package com.example.muhaimenn.kotlinpractice
 
 import com.example.muhaimenn.kotlinpractice.model.Response
 
-class PresenterImpl : MainContract.Presenter, MainContract.OnFinishedListener {
+class PresenterImpl(mainContract : MainContract.MainView,interactorImpl: MainContract.GetBookInteractor) : MainContract.Presenter, MainContract.OnFinishedListener {
 
 
 

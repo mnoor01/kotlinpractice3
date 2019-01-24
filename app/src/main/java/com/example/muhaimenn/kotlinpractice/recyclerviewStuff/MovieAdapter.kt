@@ -1,6 +1,8 @@
 package com.example.muhaimenn.kotlinpractice.recyclerviewStuff
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,14 +11,14 @@ import com.example.muhaimenn.kotlinpractice.R
 import com.example.muhaimenn.kotlinpractice.model.Response
 import com.squareup.picasso.Picasso
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewholder>() {
+class MovieAdapter(val items : MutableList<Response> , val context : Context) : RecyclerView.Adapter<MovieAdapter.MovieViewholder>() {
 
     private val movies: MutableList<Response> = mutableListOf()
 
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MovieViewholder {
-        return MovieViewholder(View.inflate(p0.context, R.layout.movie_itemview, p0))
+        return MovieViewholder(LayoutInflater.from(context).inflate(R.layout.movie_itemview,p0,false))
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 }
 
