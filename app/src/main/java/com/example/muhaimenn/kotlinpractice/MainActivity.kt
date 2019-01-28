@@ -14,9 +14,10 @@ class MainActivity : AppCompatActivity(), MainContract.MainView, MainContract.On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val interactorImpl = InteractorImpl()
-        val presenter: MainContract.Presenter = PresenterImpl(this, interactorImpl)
         initiRecylerview()
+
+        val presenter: MainContract.Presenter = PresenterImpl(this, InteractorImpl())
+
 
         presenter.start()
     }
@@ -29,17 +30,17 @@ class MainActivity : AppCompatActivity(), MainContract.MainView, MainContract.On
     override fun putDataToRecylerview(movieList: MutableList<Response>) {
 
         myRecyclerview.adapter = MovieAdapter(movieList, this)
-        Log.d("recyclerview", "view")
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onFinished(movieList: MutableList<Response>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onFailure(throwable: Throwable) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
 

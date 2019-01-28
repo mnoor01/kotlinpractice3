@@ -12,7 +12,7 @@ class InteractorImpl : MainContract.GetBookInteractor {
     override fun getData(onFinishedListener: MainContract.OnFinishedListener) {
         val movieList = mutableListOf<Response>()
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.= MyRetrofitInstance
-        var movie: GetMovie? = MyRetrofitInstance.retrofitInstance()
+        val movie: GetMovie? = MyRetrofitInstance.retrofitInstance()
         val myValue: Observable<MutableList<Response>> = movie!!.getMovie()
         myValue.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
