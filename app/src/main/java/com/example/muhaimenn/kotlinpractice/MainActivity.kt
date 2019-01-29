@@ -3,13 +3,14 @@ package com.example.muhaimenn.kotlinpractice
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import com.example.muhaimenn.kotlinpractice.model.Response
+import android.support.v7.widget.RecyclerView
+import com.example.muhaimenn.kotlinpractice.model.ApiResponse
 import com.example.muhaimenn.kotlinpractice.recyclerviewStuff.MovieAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), MainContract.MainView, MainContract.OnFinishedListener {
+class MainActivity : AppCompatActivity(), MainContract.MainView {
 
+    private val adapter = MovieAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,25 +23,17 @@ class MainActivity : AppCompatActivity(), MainContract.MainView, MainContract.On
         presenter.start()
     }
 
-    fun initiRecylerview() {
-        myRecyclerview.layoutManager = LinearLayoutManager(this)
+    private fun initiRecylerview() {
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.orientation = RecyclerView.VERTICAL
+
+        myRecyclerview.layoutManager = layoutManager
+        myRecyclerview.adapter = adapter
 
     }
 
-    override fun putDataToRecylerview(movieList: MutableList<Response>) {
-
-        myRecyclerview.adapter = MovieAdapter(movieList, this)
-
-
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onFinished(movieList: MutableList<Response>) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onFailure(throwable: Throwable) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun putDataToRecylerview(movieList: List<ApiResponse>) {
+        adapter.setData(movieList)
     }
 }
 
