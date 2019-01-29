@@ -1,10 +1,15 @@
 package com.example.muhaimenn.kotlinpractice
 
-import io.reactivex.Observable
-import okhttp3.Response
+import com.example.muhaimenn.kotlinpractice.model.ApiResponse
+import io.reactivex.Single
+import retrofit2.Call
+
 import retrofit2.http.GET
 
 interface GetMovie {
-    @GET("/filippella/Sample-API-Files/master/json/movies-api.json")
-    fun getMovie(): Observable<List<Response>>
+    @GET("books.json")
+    fun getMovieRx(): Single<List<ApiResponse>>
+
+    @GET("books.json")
+    fun getMovie(): Call<List<ApiResponse>>
 }
