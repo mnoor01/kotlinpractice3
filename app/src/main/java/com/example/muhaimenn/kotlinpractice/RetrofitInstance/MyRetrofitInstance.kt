@@ -1,25 +1,27 @@
 package com.example.muhaimenn.kotlinpractice.RetrofitInstance
 
-import android.util.Log
 import com.example.muhaimenn.kotlinpractice.GetMovie
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MyRetrofitInstance {
-    companion object {
+object MyRetrofitInstance {
 
+    fun retrofitInstance(): GetMovie {
+        val retrofitInstance = Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(OkHttpClient()
+                        .newBuilder()
+                        .addInterceptor(
+                                HttpLoggingInterceptor() //Adds a logger which prints out the Network calls
+                                        .setLevel(HttpLoggingInterceptor.Level.BODY)
+                        ).build()
+                )
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://raw.githubusercontent.com/tamingtext/book/master/apache-solr/example/exampledocs/").build()
 
-        public fun retrofitInstance(): GetMovie? {
-            val retrofitInstance = Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("https://raw.githubusercontent.com/tamingtext/book/master/apache-solr/example/exampledocs/").build()
+        return retrofitInstance.create(GetMovie::class.java)
 
-Log.d("url", retrofitInstance.callbackExecutor().toString())
-            return retrofitInstance.create(GetMovie::class.java)
-
-        }
     }
-
 }
-///wljhefcjoqhwkj;cqw;dc

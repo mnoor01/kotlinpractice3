@@ -1,10 +1,11 @@
 package com.example.muhaimenn.kotlinpractice
 
-import com.example.muhaimenn.kotlinpractice.model.Response
+import com.example.muhaimenn.kotlinpractice.model.ApiResponse
 
 interface MainContract {
     interface MainView {
-        fun putDataToRecylerview(movieList: MutableList<Response>)
+        //Use the interface List instead of the concrete class of MutableList
+        fun putDataToRecylerview(movieList: List<ApiResponse>)
     }
 
     interface Presenter {
@@ -16,7 +17,7 @@ interface MainContract {
     }
 
     interface OnFinishedListener {
-        fun onFinished(movieList: MutableList<Response>)
+        fun onFinished(movieList: List<ApiResponse>) //Use the interface List instead of the concrete class of MutableList
         fun onFailure(throwable: Throwable)
     }
 }

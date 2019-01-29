@@ -1,35 +1,24 @@
 package com.example.muhaimenn.kotlinpractice
 
 import android.util.Log
-import com.example.muhaimenn.kotlinpractice.model.Response
+import com.example.muhaimenn.kotlinpractice.model.ApiResponse
 
-class PresenterImpl(mainContract: MainContract.MainView, interactorImpl: MainContract.GetBookInteractor) : MainContract.Presenter, MainContract.OnFinishedListener {
-
-    private var mainContract: MainContract.MainView
-    private var interactorImpl: MainContract.GetBookInteractor
-
-    init {
-        this.mainContract = mainContract
-        this.interactorImpl=interactorImpl
-    }
+class PresenterImpl(private val mainContract: MainContract.MainView,
+                    private val interactorImpl: MainContract.GetBookInteractor
+) : MainContract.Presenter, MainContract.OnFinishedListener {
 
     override fun start() {
-
-        interactorImpl.getData(this)
-
         Log.d("start", "it came here")
-        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        interactorImpl.getData(this)
     }
 
-    override fun onFinished(movieList: MutableList<Response>) {
-
+    override fun onFinished(movieList: List<ApiResponse>) {
+        Log.d("onFinished", "it came here")
         mainContract.putDataToRecylerview(movieList)
 
-        //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onFailure(throwable: Throwable) {
-        //    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
